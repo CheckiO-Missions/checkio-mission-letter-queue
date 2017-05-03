@@ -15,14 +15,17 @@
     - "POP" -- dequeue the front position. if the queue is empty, then do nothing.<br>
     The queue can only contain letters.
 </p>
+
 <p>
     You should process all commands and assemble letters which remain in the queue in one word from the front to the
     rear of the queue.
 </p>
+
 <p>
     Let's look at an example, here’s the sequence of commands:<br>
     ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
 </p>
+
 <style>
     #example-table {
         border-collapse: collapse;
@@ -37,6 +40,7 @@
         text-align: center;
     }
 </style>
+
 <table id="example-table">
     <tr>
         <th>Command</th>
@@ -93,18 +97,24 @@
     <strong>Output: </strong> The queue remaining as a string.
 </p>
 
-
-<div class="for_info_only">
-    <p>
-        <strong>Example:</strong>
-    </p>
-    <pre class="brush: python">
+<p class="for_info_only">
+    <strong>Example:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letterQueue(["POP", "POP"]) == ""
+letterQueue(["PUSH H", "PUSH I"]) == "HI"
+letterQueue([]) == ""
+</pre>
+    {% else %}
+<pre class="brush: python">
 letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
 letter_queue(["POP", "POP"]) == ""
 letter_queue(["PUSH H", "PUSH I"]) == "HI"
 letter_queue([]) == ""
-    </pre>
-</div>
+</pre>
+    {% endif %}
+</p>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
