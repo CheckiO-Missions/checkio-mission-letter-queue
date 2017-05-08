@@ -30,12 +30,11 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                 var this_e = this;
                 $tryit = $(this_e.extSetHtmlTryIt(this_e.getTemplate('tryit')));
 
-                var tryitDataInput = $tryit.find('.tryit-content');
+                var tryitDataInput = $tryit.find('.tryit_text_input');
                 tryitDataInput.focus();
 
                 $tryit.find('.bn-check').click(function (e) {
-                    var password = passwordInput.val();
-                    var tryitData = tryitDataInput.val();
+                    var tryitData = tryitDataInput.val().split(/[\s,]+/);
                     this_e.extSendToConsoleCheckiO(tryitData);
                     e.stopPropagation();
                     return false;
