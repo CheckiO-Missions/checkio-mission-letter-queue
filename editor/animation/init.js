@@ -34,7 +34,7 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                 tryitDataInput.focus();
 
                 $tryit.find('.bn-check').click(function (e) {
-                    var tryitData = tryitDataInput.val().split(/[\s,]+/);
+                    var tryitData = tryitDataInput.val().split(/\,+/);
                     this_e.extSendToConsoleCheckiO(tryitData);
                     e.stopPropagation();
                     return false;
