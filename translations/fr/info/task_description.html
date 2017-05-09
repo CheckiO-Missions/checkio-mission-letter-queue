@@ -1,114 +1,131 @@
 <p>
-En informatique, une file (<em>queue</em>) est une structure particulière dans laquelle les entités de la collection
-sont conservées dans l'ordre. Les  principales opérations sur une file sont:<br> 
-l'ajout d'une entité à la toute dernière position dans la file (opération nommée <em>enqueue</em> ou <em>push</em>),<br>
-et la suppression de l'entité située en toute première position dans la file 
-(opération nommée <em>dequeue</em> ou <em>pop</em>).<br>
-Ce qui fait des files des structures de données First-In-First-Out (FIFO) (littéralement : Premier dedans, premier dehors).
-Dans une structure de données FIFO, le premier élément ajouté à la file sera le premier élément enlevé de la file.
-Cela implique qu'un nouvel élément ajouté ne pourra être retiré de la file qu'après tous les éléments ajoutés
-avant lui.
+    En informatique, une file (<em>queue</em>) est une structure particulière dans laquelle les entités de la collection
+    sont conservées dans l'ordre. Les  principales opérations sur une file sont:<br>
+    l'ajout d'une entité à la toute dernière position dans la file (opération nommée <em>enqueue</em> ou <em>push</em>),<br>
+    et la suppression de l'entité située en toute première position dans la file
+    (opération nommée <em>dequeue</em> ou <em>pop</em>).<br>
+    Ce qui fait des files des structures de données First-In-First-Out (FIFO) (littéralement : Premier dedans, premier dehors).
+    Dans une structure de données FIFO, le premier élément ajouté à la file sera le premier élément enlevé de la file.
+    Cela implique qu'un nouvel élément ajouté ne pourra être retiré de la file qu'après tous les éléments ajoutés
+    avant lui.
 </p>
+
 <p>
-Nous allons simuler le principe de file avec Python.
-Vous disposez d'un suite de commandes :<br>
-- "PUSH X" -- <em>enqueue</em> <strong>X</strong>, où <strong>X</strong> est une lettre majuscule,<br>
-- "POP" -- <em>dequeue</em> l'élément en première position. Si la file est vide, alors ne rien faire.<br>
-La file ne peut contenir que des lettres.
+    Nous allons simuler le principe de file avec Python.
+    Vous disposez d'un suite de commandes :<br>
+    - "PUSH X" -- <em>enqueue</em> <strong>X</strong>, où <strong>X</strong> est une lettre majuscule,<br>
+    - "POP" -- <em>dequeue</em> l'élément en première position. Si la file est vide, alors ne rien faire.<br>
+    La file ne peut contenir que des lettres.
 </p>
+
 <p>
-Il faudra faire exécuter toutes les commandes données, puis assembler les lettres qui restent dans la file
-pour construire un seul mot, en partant de la lettre en première position, jusqu'à la lettre en fin de file.
+    Il faudra faire exécuter toutes les commandes données, puis assembler les lettres qui restent dans la file
+    pour construire un seul mot, en partant de la lettre en première position, jusqu'à la lettre en fin de file.
 </p>
+
 <p>
-Observons cet exemple, dont voici les commandes:<br>
-["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
+    Observons cet exemple, dont voici les commandes:<br>
+    ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
 </p>
+
 <style>
-#example-table {
-border-collapse: collapse;
-margin-bottom: 10px;
-}
-#example-table td,
-#example-table th {
-border: 1px #294270 solid;
-padding: 4px;
-font-size: 16px;
-text-align: center;
-}
+    #example-table {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    #example-table td,
+    #example-table th {
+        border: 1px #294270 solid;
+        padding: 4px;
+        font-size: 16px;
+        text-align: center;
+    }
 </style>
+
 <table id="example-table">
-<tr>
-<th>Command</th>
-<th>Queue</th>
-<th>Note</th>
-</tr>
-<tr>
-<td>PUSH A</td>
-<td>A</td>
-<td>Ajoute "A" dans la file vide</td>
-</tr>
-<tr>
-<td>POP</td>
-<td></td>
-<td>Enlève "A"</td>
-</tr>
-<tr>
-<td>POP</td>
-<td></td>
-<td>La file est déjà vide</td>
-</tr>
-<tr>
-<td>PUSH Z</td>
-<td>Z</td>
-<td></td>
-</tr>
-<tr>
-<td>PUSH D</td>
-<td>ZD</td>
-<td></td>
-</tr>
-<tr>
-<td>PUSH O</td>
-<td>ZDO</td>
-<td></td>
-</tr>
-<tr>
-<td>POP</td>
-<td>DO</td>
-<td></td>
-</tr>
-<tr>
-<td>PUSH T</td>
-<td><strong>DOT</strong></td>
-<td>Le résultat</td>
-</tr>
+    <tr>
+        <th>Command</th>
+        <th>Queue</th>
+        <th>Note</th>
+    </tr>
+    <tr>
+        <td>PUSH A</td>
+        <td>A</td>
+        <td>Ajoute "A" dans la file vide</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Enlève "A"</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>La file est déjà vide</td>
+    </tr>
+    <tr>
+        <td>PUSH Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH T</td>
+        <td><strong>DOT</strong></td>
+        <td>Le résultat</td>
+    </tr>
 </table>
+
 <p>
-<strong>Input: </strong> Une suite de commandes, comme liste (list) de chaîne de caractères (str).
+    <strong>Input: </strong> Une suite de commandes, comme liste (list) de chaîne de caractères (str).
 </p>
+
 <p>
-<strong>Output: </strong> La file après les opérations, comme chaîne de caractères (str).
+    <strong>Output: </strong> La file après les opérations, comme chaîne de caractères (str).
 </p>
-<div class="for_info_only">
-<p>
-<strong>Exemple:</strong>
-</p>
+
+<p class="for_info_only">
+    <strong>Exemple:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letterQueue(["POP", "POP"]) == ""
+letterQueue(["PUSH H", "PUSH I"]) == "HI"
+letterQueue([]) == ""
+</pre>
+    {% else %}
 <pre class="brush: python">
 letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
 letter_queue(["POP", "POP"]) == ""
 letter_queue(["PUSH H", "PUSH I"]) == "HI"
 letter_queue([]) == ""
 </pre>
-</div>
-<p class="for_info_only">
-<strong>Utilisation: </strong>
-La notion de file est très utilisée en Informatique, dans les transports et dans les systèmes de recherche
-où les entités telles que données, objets, personnes ou événements sont stockées en vue d'un traitement ultérieur.
-Dans ce contexte, la file joue le rôle de tampon (buffer).
+    {% endif %}
 </p>
+
+<p class="for_info_only">
+    <strong>Utilisation: </strong>
+    La notion de file est très utilisée en Informatique, dans les transports et dans les systèmes de recherche
+    où les entités telles que données, objets, personnes ou événements sont stockées en vue d'un traitement ultérieur.
+    Dans ce contexte, la file joue le rôle de tampon (buffer).
+</p>
+
 <p>
-<strong>Précondition:</strong><br>
-0 &le; len(<strong>commands</strong>) &le; 30;<br>
-all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <strong>commands</strong>)
+    <strong>Précondition:</strong><br>
+    0 &le; len(<strong>commands</strong>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <strong>commands</strong>)
 </p>

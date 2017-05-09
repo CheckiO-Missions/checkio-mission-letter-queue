@@ -15,14 +15,17 @@
     - "POP" -- убрать из начала очереди элемент. Если очередь пустая, то это команда ничего не делает.<br>
     Очередь содержит только буквы.
 </p>
+
 <p>
     Вам необходимо обработать все команды и собрать все буквы, которые остались в очереди, в одно слово,
     от начала до конца очереди.
 </p>
+
 <p>
     Рассмотрим пример. Дана последовательность команд:<br>
     ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
 </p>
+
 <style>
     #example-table {
         border-collapse: collapse;
@@ -93,18 +96,24 @@
     <strong>Выходные данные: </strong> Содержание очереди, как строка (str).
 </p>
 
-
-<div class="for_info_only">
-    <p>
-        <strong>Примеры:</strong>
-    </p>
-    <pre class="brush: python">
+<p class="for_info_only">
+    <strong>Пример:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
+letterQueue(["POP", "POP"]) == ""
+letterQueue(["PUSH H", "PUSH I"]) == "HI"
+letterQueue([]) == ""
+</pre>
+    {% else %}
+<pre class="brush: python">
 letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
 letter_queue(["POP", "POP"]) == ""
 letter_queue(["PUSH H", "PUSH I"]) == "HI"
 letter_queue([]) == ""
-    </pre>
-</div>
+</pre>
+    {% endif %}
+</p>
 
 <p class="for_info_only">
     <strong>Зачем это нужно: </strong>
