@@ -99,18 +99,30 @@
 <p class="for_info_only">
     <strong>Пример:</strong>
     {% if interpreter.slug == "js-node" %}
-<pre class="brush: python">
-letterQueue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
-letterQueue(["POP", "POP"]) == ""
-letterQueue(["PUSH H", "PUSH I"]) == "HI"
-letterQueue([]) == ""
+<pre class="brush: javascript">letterQueue(['PUSH A',
+ 'POP',
+ 'POP',
+ 'PUSH Z',
+ 'PUSH D',
+ 'PUSH O',
+ 'POP',
+ 'PUSH T']) == 'DOT'
+letterQueue(['POP', 'POP']) == ''
+letterQueue(['PUSH H', 'PUSH I']) == 'HI'
+letterQueue([]) == ''
 </pre>
     {% else %}
-<pre class="brush: python">
-letter_queue(["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]) == "DOT"
-letter_queue(["POP", "POP"]) == ""
-letter_queue(["PUSH H", "PUSH I"]) == "HI"
-letter_queue([]) == ""
+<pre class="brush: python">letter_queue(['PUSH A',
+ 'POP',
+ 'POP',
+ 'PUSH Z',
+ 'PUSH D',
+ 'PUSH O',
+ 'POP',
+ 'PUSH T']) == 'DOT'
+letter_queue(['POP', 'POP']) == ''
+letter_queue(['PUSH H', 'PUSH I']) == 'HI'
+letter_queue([]) == ''
 </pre>
     {% endif %}
 </p>
