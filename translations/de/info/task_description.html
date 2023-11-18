@@ -1,0 +1,142 @@
+<p>
+    In der Informatik ist eine Warteschlange eine besondere Art von Datentyp, bei dem die Entitäten in der Sammlung
+    geordnet sind und die wichtigsten Operationen mit der Sammlung das Hinzufügen von Entitäten zur hinteren Endposition
+    position (enqueue oder push),
+    und das Entfernen von Entitäten von der vorderen Terminalposition (dequeue oder pop).
+    Dies macht die Warteschlange zu einer First-In-First-Out (FIFO) Datenstruktur.
+    In einer FIFO-Datenstruktur wird das erste Element, das der Warteschlange hinzugefügt wird, auch das erste sein, das entfernt wird.
+    Dies entspricht der Anforderung, dass, sobald ein neues Element hinzugefügt wird, alle zuvor hinzugefügten Elemente entfernt werden müssen
+    entfernt werden müssen, bevor das neue Element entfernt werden kann.
+</p>
+
+<p>
+    Wir werden den Prozess der Warteschlange mit Python nachbilden. Sie erhalten eine Folge von Befehlen:<br>
+    - "PUSH X" -- stellt <strong>X</strong> in die Warteschlange, wobei <strong>X</strong> ein Buchstabe in Großbuchstaben ist.<br>
+    - "POP" - die vorderste Position der Warteschlange wird gelöscht. Wenn die Warteschlange leer ist, tun Sie nichts.<br>
+    Die Warteschlange kann nur Buchstaben enthalten.
+</p>
+
+<p>
+    Sie sollten alle Befehle abarbeiten und die Buchstaben, die in der Warteschlange verbleiben, in einem Wort vom Anfang bis zum Ende der Warteschlange zusammenstellen
+    hinten in der Warteschlange.
+</p>
+
+<p>
+    Schauen wir uns ein Beispiel an, hier ist die Reihenfolge der Befehle:<br>
+    ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
+</p>
+
+<style>
+    #example-table {
+        border-collapse: einklappen;
+        margin-bottom: 10px;
+    }
+
+    #example-table td,
+    #example-table th {
+        border: 1px #294270 solid;
+        padding: 4px;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+
+<table id="example-table">
+    <tr>
+        <th>Befehl</th>
+        <th>Warteschlange</th>
+        <th>Hinweis</th>
+    </tr>
+    <tr>
+        <td>PUSH A</td>
+        <td>A</td>
+        <td>Fügt "A" in die leere Warteschlange ein</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Entfernt "A"</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Die Warteschlange ist bereits leer</td>
+    </tr>
+    <tr>
+        <td>PUSH Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH T</td>
+        <td><strong>DOT</strong></td>
+        <td>Das Ergebnis</td>
+    </tr>
+</table>
+
+<p>
+   <strong>Eingabe: </strong> Eine Folge von Befehlen als Liste von Zeichenketten.
+</p>
+
+<p>
+   <strong>Ausgabe: </strong> Die verbleibende Warteschlange als String.
+</p>
+
+<p class="for_info_only">
+    <strong>Beispiel:</strong>
+    {% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">letterQueue(['PUSH A',
+ 'POP',
+ 'POP',
+ 'PUSH Z',
+ 'PUSH D',
+ 'PUSH O',
+ 'POP',
+ 'PUSH T']) == 'DOT'
+letterQueue(['POP', 'POP']) == ''
+letterQueue(['PUSH H', 'PUSH I']) == 'HI'
+letterQueue([]) == ''
+</pre>
+    {% else %}
+<pre class="brush: python">letter_queue(['PUSH A',
+ 'POP',
+ 'POP',
+ 'PUSH Z',
+ 'PUSH D',
+ 'PUSH O',
+ 'POP',
+ 'PUSH T']) == 'DOT'
+letter_queue(['POP', 'POP']) == ''
+letter_queue(['PUSH H', 'PUSH I']) == 'HI'
+letter_queue([]) == ''
+</pre>
+    {% endif %}
+</p>
+
+<p class="for_info_only">
+   <strong>Wie sie verwendet wird: </strong>
+    Warteschlangen bieten Dienste in der Informatik, im Transportwesen,
+    und Operations Research, wo verschiedene Einheiten wie Daten, Objekte, Personen oder Ereignisse gespeichert und
+    für eine spätere Verarbeitung aufbewahrt werden. In diesen Kontexten erfüllt die Warteschlange die Funktion eines Puffers.
+</p>
+
+<p>
+   <strong>Vorbedingung:</strong><br>
+    0 &le; len<strong>(Befehle</strong>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) oder re.match("\APOP\Z", c) for c in <strong>commands</strong>)
+</p>
