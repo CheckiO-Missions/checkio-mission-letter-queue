@@ -1,12 +1,9 @@
-requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
+requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
     function (extIO, $, TableComponent) {
-        var $tryit;
         var io = new extIO({
             animation: function($expl, data){
-                var checkioInput = data.in;
-                if (!checkioInput){
-                    return;
-                }
+                var checkioInput = data.in[0];
+                if (!checkioInput) return;
 
                 var queue = [];
                 var $table = $expl.find("table");
@@ -25,31 +22,6 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                     $table.append($tr);
                 }
             },
-            animationTemplateName: 'animation',
-            tryit: function(){
-                var this_e = this;
-                $tryit = $(this_e.extSetHtmlTryIt(this_e.getTemplate('tryit')));
-
-                var tryitDataInput = $tryit.find('.tryit_text_input');
-                tryitDataInput.focus();
-
-                $tryit.find('.bn-check').click(function (e) {
-                    var tryitData = tryitDataInput.val().split(/\,+/);
-                    tryitData = $.map(tryitData, function (val) {
-                        return val.trim()
-                    })
-                    this_e.extSendToConsoleCheckiO(tryitData);
-                    e.stopPropagation();
-                    return false;
-                });
-            },
-            retConsole: function (ret) {
-                $tryit.find('.checkio_result').html("Your result:<br>" + ret);
-            },
-            functions: {
-                js: 'letterQueue',
-                python: 'letter_queue'
-            }
         });
         io.start();
     }
