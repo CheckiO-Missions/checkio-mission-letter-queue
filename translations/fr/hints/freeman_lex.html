@@ -1,0 +1,149 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Attrapez une idée 💡! Déclarez une liste vide comme étant une file d'attente. Itérer sur les commandes et, à l'aide d'une instruction conditionnelle, effectuer les opérations respectives dans le cas de commandes spécifiques: ajouter une lettre comme nouvel élément de la liste ou supprimer le premier élément de la liste (si la liste n'est pas vide). Réunissez les éléments restants de la liste en une seule chaîne de caractères et renvoyez-la.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            Déclarez une variable <b class="code">queue</b> avec la valeur initiale de liste vide.
+        </p>
+        <pre class="brush: python">
+queue = []
+        </pre>
+        <p>
+            Parcourez la liste <b class="code">commands</b> à l'aide de la boucle <b class="code">for</b>.
+        </p>
+        <pre class="brush: python">
+for com in commands:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Que faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Vous pouvez maintenant avoir deux variantes de commandes, pousser une lettre ou pop. C'est un bon endroit pour la déclaration <b class="code">if/elif</b>.
+        </p>
+        <pre class="brush: python">
+if ...:
+    ...
+elif ...:
+    ...
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        J'ai encore besoin d'un indice.
+    </div>
+    <div class="answer">
+        <p>
+            Décrivons le cas de la poussée d'une lettre. Une telle commande commence toujours par "PUSH" et se termine par une seule lettre. Vous pouvez donc utiliser la méthode <a target="_blank" href="https://www.w3schools.com/python/ref_string_startswith.asp">str.startswith()</a> avec l'argument "PUSH" et ajouter le dernier caractère de la commande à la file d'attente avec <b class="code">list.append()</b> et l'indexation de la chaîne.
+        </p>
+        <pre class="brush: python">
+if com.startswith("PUSH"):
+    queue.append(com[-1])
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment décrire l'autre cas?
+    </div>
+    <div class="answer">
+        <p>
+            L'autre cas - "POP" - consiste à supprimer le premier élément de la liste. Vérifiez que la liste n'est pas vide pour que la suppression soit valide et utilisez le mot-clé <b class="code">del</b> et l'indexation de la liste pour supprimer le premier élément.
+        </p>
+        <pre class="brush: python">
+elif queue:
+    del queue[0]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment retourner une chaîne de caractères correcte?
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la méthode <b class="code">str.join()</b> pour recevoir la chaîne unique de la file d'attente avec les lettres restantes et la renvoyer.
+        </p>
+        <pre class="brush: python">
+return "".join(queue)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        À quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de combiner tous les indices précédents et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indications de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def letter_queue(commands: list[str]) -> str:
+
+    queue = []
+    for com in commands:
+        if com.startswith("PUSH"):
+            queue.append(com[-1])
+        elif queue:
+            del queue[0]
+        
+    return "".join(queue)
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            La solution suivante est généralement la même, mais au lieu de créer et de modifier une liste, vous créez directement une chaîne vide. Fractionnez une commande et concaténé une lettre à la file d'attente ou en la découpant à partir du deuxième élément.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def letter_queue(commands: list[str]) -> str:
+
+    queue = ''
+    for com in commands:
+        if 'PUSH' in com:
+            queue += com.split(' ')[1]
+        elif queue:
+            queue = queue[1:]
+            
+    return queue
+        </pre>
+        </div>
+        <p><strong>Cliquez sur <b>"Best Solutions"</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</strong></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je sais et je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
