@@ -1,0 +1,108 @@
+<p style="text-align: justify;">
+    W informatyce kolejka jest szczególnym rodzajem typu danych, w którym jednostki w kolekcji są utrzymywane w porządku, a głównymi operacjami na kolekcji są dodawanie jednostek do tylnej pozycji terminala (enqueue lub push) i usuwanie jednostek z przedniej pozycji terminala (dequeue lub pop). To sprawia, że kolejka jest strukturą danych FIFO (First-In-First-Out). W strukturze danych FIFO pierwszy element dodany do kolejki będzie pierwszym, który zostanie usunięty. Jest to równoważne z wymogiem, że po dodaniu nowego elementu wszystkie elementy, które zostały dodane wcześniej, muszą zostać usunięte przed usunięciem nowego elementu.
+</p>
+
+<p>
+    Będziemy emulować proces kolejki za pomocą Pythona. Otrzymują Państwo sekwencję poleceń:<br>
+    - <code>"PUSH X"</code> - enqueue <b>X</b>, gdzie <b>X</b> jest wielką literą.<br>
+    - <code>"POP"</code> - jeśli kolejka jest pusta, proszę nic nie robić.<br>
+    Kolejka może zawierać tylko litery.
+</p>
+
+<p>
+    Należy przetworzyć wszystkie polecenia i połączyć litery, które pozostały w kolejce w jedno słowo od przodu do tyłu kolejki.
+</p>
+
+<p>
+    Proszę spojrzeć na przykład, oto sekwencja poleceń:<br>
+    <code>["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]</code> 
+</p>
+
+<style>
+    #example-table {
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    #example-table td,
+    #example-table th {
+        border: 1px #294270 solid;
+        padding: 4px;
+        font-size: 16px;
+        text-align: center;
+    }
+</style>
+
+<table id="example-table">
+    <tr>
+        <th>Polecenie</th>
+        <th>Kolejka</th>
+        <th>Uwaga</th>
+    </tr>
+    <tr>
+        <td>PUSH A</td>
+        <td>A</td>
+        <td>Dodaje "A" do pustej kolejki</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Usunięto "A"</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>Kolejka jest już pusta</td>
+    </tr>
+    <tr>
+        <td>PUSH Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PUSH T</td>
+        <td><strong>DOT</strong></td>
+        <td>Wynik</td>
+    </tr>
+</table>
+
+<p>
+   <strong>Wejście:</strong> Sekwencja poleceń jako {% if is_js %}tablica <span>(array)</span>{% else %} lista <span>(list)</span>{% endif %} ciągów znaków (<span>str{% if is_js %}ing{% endif %}</span>).
+</p>
+
+<p>
+   <strong>Wyjście:</strong> Pozostała kolejka jako ciąg znaków (<span>str{% if is_js %}ing{% endif %}</span>).
+</p>
+
+<p class="for_info_only">
+    <strong>Przykłady:</strong>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</p>
+
+<p class="for_info_only">
+   <strong>Jak jest używany:</strong>
+    Kolejki zapewniają usługi w informatyce, transporcie,
+    i badaniach operacyjnych, gdzie różne jednostki, takie jak dane, obiekty, osoby lub zdarzenia są przechowywane i
+    przechowywane do późniejszego przetworzenia. W tych kontekstach kolejka pełni funkcję bufora.
+</p>
+
+<p>
+   <strong>Warunki wstępne:</strong><br>
+    0 &le; len(<b>commands</b>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <b>commands</b>)
+</p>
