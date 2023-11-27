@@ -1,29 +1,21 @@
-<p>
-    In computer science, a queue is a particular kind of data type in which the entities in the collection
-    are kept in order and the principal operations on the collection are the addition of entities to the rear terminal
-    position (enqueue or push),
-    and removal of entities from the front terminal position (dequeue or pop).
-    This makes the queue a First-In-First-Out (FIFO) data structure.
-    In a FIFO data structure, the first element added to the queue will be the first one to be removed.
-    This is equivalent to the requirement that once a new element is added, all elements that were added before have to
-    be removed before the new element can be removed.
+<p style="text-align: justify;">
+    In computer science, a queue is a particular kind of data type in which the entities in the collection are kept in order and the principal operations on the collection are the addition of entities to the rear terminal position (enqueue or push), and removal of entities from the front terminal position (dequeue or pop). This makes the queue a First-In-First-Out (FIFO) data structure. In a FIFO data structure, the first element added to the queue will be the first one to be removed. This is equivalent to the requirement that once a new element is added, all elements that were added before have to be removed before the new element can be removed.
 </p>
 
 <p>
     We will emulate the queue process with Python. You are given a sequence of commands:<br>
-    - "PUSH X" -- enqueue <strong>X</strong>, where <strong>X</strong> is a letter in uppercase.<br>
-    - "POP" -- dequeue the front position. if the queue is empty, then do nothing.<br>
+    - <code>"PUSH X"</code> - enqueue <b>X</b>, where <b>X</b> is a letter in uppercase.<br>
+    - <code>"POP"</code> - dequeue the front position. if the queue is empty, then do nothing.<br>
     The queue can only contain letters.
 </p>
 
 <p>
-    You should process all commands and assemble letters which remain in the queue in one word from the front to the
-    rear of the queue.
+    You should process all commands and assemble letters which remain in the queue in one word from the front to the rear of the queue.
 </p>
 
 <p>
     Let's look at an example, here’s the sequence of commands:<br>
-    ["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]
+    <code>["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]</code> 
 </p>
 
 <style>
@@ -90,53 +82,27 @@
 </table>
 
 <p>
-    <strong>Input: </strong> A sequence of commands as a list of strings.
+    <strong>Input:</strong> A sequence of commands as {% if is_js %}<span translate="repeat">array</span>{% else %}<span translate="repeat">list</span>{% endif %} of strings (<span translate="no">str{% if is_js %}ing{% endif %}</span>).
 </p>
 
 <p>
-    <strong>Output: </strong> The queue remaining as a string.
+    <strong>Output:</strong> The queue remaining as a string (<span translate="no">str{% if is_js %}ing{% endif %}</span>).
 </p>
 
 <p class="for_info_only">
-    <strong>Example:</strong>
-    {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">letterQueue(['PUSH A',
- 'POP',
- 'POP',
- 'PUSH Z',
- 'PUSH D',
- 'PUSH O',
- 'POP',
- 'PUSH T']) == 'DOT'
-letterQueue(['POP', 'POP']) == ''
-letterQueue(['PUSH H', 'PUSH I']) == 'HI'
-letterQueue([]) == ''
-</pre>
-    {% else %}
-<pre class="brush: python">letter_queue(['PUSH A',
- 'POP',
- 'POP',
- 'PUSH Z',
- 'PUSH D',
- 'PUSH O',
- 'POP',
- 'PUSH T']) == 'DOT'
-letter_queue(['POP', 'POP']) == ''
-letter_queue(['PUSH H', 'PUSH I']) == 'HI'
-letter_queue([]) == ''
-</pre>
-    {% endif %}
+    <strong>Examples:</strong>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </p>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
+    <strong>How it is used:</strong>
     Queues provide services in computer science, transportation,
     and operations research where various entities such as data, objects, persons, or events are stored and
     held to be processed later. In these contexts, the queue performs the function of a buffer.
 </p>
 
 <p>
-    <strong>Precondition:</strong><br>
-    0 &le; len(<strong>commands</strong>) &le; 30;<br>
-    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <strong>commands</strong>)
+    <strong>Preconditions:</strong><br>
+    0 &le; len(<b>commands</b>) &le; 30;<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in <b>commands</b>)
 </p>
