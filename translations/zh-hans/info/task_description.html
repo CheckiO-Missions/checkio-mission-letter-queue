@@ -1,0 +1,108 @@
+<p style="text-align: justify;">
+    在计算机科学中，队列是一种特殊的数据类型，其中集合中的实体按顺序排列，对集合的主要操作是将实体添加到后端位置（enqueue 或 push），以及将实体从前端位置移除（dequeue 或 pop）。这使得队列成为一种先进先出（FIFO）数据结构。在先进先出数据结构中，第一个加入队列的元素将是第一个被移除的元素。这相当于要求一旦添加了一个新元素，就必须先移除之前添加的所有元素，然后才能移除新元素。
+</p>
+
+<p>
+    我们将用 Python 来模拟队列过程。我们将得到一系列命令<br>
+    - <code>"PUSH X"</code> - enqueue<b>X</b> ，其中<b>X</b> 是一个大写字母。<br>
+    - <code>"POP"</code> - 如果队列为空，则什么也不做。<br>
+    队列只能包含字母。
+</p>
+
+<p>
+    您应处理所有命令，并将队列中的字母以一个单词的形式从队列的前部向后部排列。
+</p>
+
+<p>
+    我们来看一个例子，下面是命令的顺序：<br>
+    <code>["PUSH A", "POP", "POP", "PUSH Z", "PUSH D", "PUSH O", "POP", "PUSH T"]</code> 
+</p>
+
+<style>
+    #example-table {
+        border-collapse: collapse；
+        margin-bottom：10px；
+    }
+
+    #example-table td、
+    #example-table th {
+        border：1px #294270 solid；
+        padding：4px；
+        font-size: 16px；
+        text-align: center；
+    }
+</style>
+
+<table id="example-table">
+    <tr>
+        <th>命令</th>
+        <th>队列</th>
+        <th>注意</th>
+    </tr>
+    <tr>
+        <td>推送 A</td>
+        <td>A</td>
+        <td>在空队列中添加 "A</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>删除 "A</td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td></td>
+        <td>队列已经为空</td>
+    </tr>
+    <tr>
+        <td>推送 Z</td>
+        <td>Z</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>推入 D</td>
+        <td>ZD</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>按 O</td>
+        <td>ZDO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>POP</td>
+        <td>DO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>按 T</td>
+        <td><strong>DOT</strong></td>
+        <td>结果</td>
+    </tr>
+</table>
+
+<p>
+   <strong>输入：</strong>命令序列为{% if is_js %}数组<span>(array)</span>{% else %} 列表<span>(list)</span>{% endif %} 字符串 (<span>str{% if is_js %}ing{% endif %}</span>).
+</p>
+
+<p>
+   <strong>输出：</strong>剩余队列字符串 (<span>str{% if is_js %}ing{% endif %}</span>).
+</p>
+
+<p class="for_info_only">
+    <strong>示例</strong>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</p>
+
+<p class="for_info_only">
+   <strong>如何使用：</strong>
+    队列为计算机科学、交通运输和运筹学提供服务、
+    和运筹学等领域提供服务。
+    以备日后处理。在这些情况下，队列具有缓冲器的功能。
+</p>
+
+<p>
+   <strong>前提条件：</strong><br>
+    0 &le; len(<b>commands</b>) &le; 30；<br>
+    all(re.match("\APUSH [A-Z]\Z", c) or re.match("\APOP\Z", c) for c in<b>commands</b>)
+</p>
